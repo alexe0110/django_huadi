@@ -9,9 +9,5 @@
         {{ article.article_text }}
     </p>
 
-{#    {% if latest_article_list %}#}
-{#        {% for a in latest_article_list %}#}
-{#            <a href="{% url 'article:detail' a.id %}">{{ a.article_title }}</a>#}
-{#        {% endfor %}#}
-{#    {% endif %}#}
+<form action="{#% url 'article:leave_comment' article_id %#}" method="POST"></form>
 {% endblock %}
