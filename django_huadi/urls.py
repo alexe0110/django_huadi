@@ -19,5 +19,6 @@ from django.urls import include
 
 urlpatterns = [
     path('articles/', include('django_huadi.apps.articles.urls')),
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls)
 ]

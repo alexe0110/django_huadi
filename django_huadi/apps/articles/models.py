@@ -1,4 +1,6 @@
 from django.db import models
+import datetime
+from django.utils import timezone
 
 
 class Article(models.Model):
@@ -9,6 +11,15 @@ class Article(models.Model):
     def __str__(self):
         return self.article_title
 
+    # Не прошло 7 дней с даты публикации
+    def was_publ(self):
+        return self.pub_date >= (timezone.now() - datetime.timedelta(days=7))
+
+    # Чтобы названия в админке были на православном языке
+    class Meta:
+        verbose_name = "Статья"
+        verbose_name_plural = "Статьи"
+
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)  # Внешний ключ, для связи между моделями
@@ -17,3 +28,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author_name
+
+    # Чтобы названия в админке были на православном языке
+    class Meta:
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
