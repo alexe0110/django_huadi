@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{article.article_title}}{% endblock %}
+
+{% block content %}
+    <h1>{{ article.article_title }}</h1>
+    <h4>{{ article.pub_date }}</h4>
+    <p>
+        {{ article.article_text }}
+    </p>
+
+{#    {% if latest_article_list %}#}
+{#        {% for a in latest_article_list %}#}
+{#            <a href="{% url 'article:detail' a.id %}">{{ a.article_title }}</a>#}
+{#        {% endfor %}#}
+{#    {% endif %}#}
+{% endblock %}

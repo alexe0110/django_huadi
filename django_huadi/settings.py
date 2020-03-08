@@ -35,7 +35,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_huadi.apps.articles.apps.ArticlesConfig',
+    'django_huadi.apps.articles',
+     # 'django_huadi.apps.articles.apps.ArticlesConfig',
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -60,7 +61,9 @@ ROOT_URLCONF = 'django_huadi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(PROJECT_ROOT, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
