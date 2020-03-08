@@ -6,9 +6,14 @@ class Article(models.Model):
     article_text = models.TextField('Тест статьи')
     pub_date = models.DateTimeField('Дата публикации')
 
+    def __str__(self):
+        return self.article_title
 
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)  # Внешний ключ, для связи между моделями
     author_name = models.CharField('Имя автора', max_length=100)
     comment_text = models.CharField('Текст комментария', max_length=300)
+
+    def __str__(self):
+        return self.author_name
